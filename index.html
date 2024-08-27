@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Basic</title>
+    <style>
+        .wrapper{
+            text-align: center;
+            margin: auto;
+            border: 1px solid black;
+            width: 20rem;
+            border-radius: 10px;
+        }
+        button{
+            margin-top: 1em;
+            border: none;
+            background-color: cadetblue;
+            padding: .8em;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        button:hover{
+            cursor: pointer;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+        p{
+            text-align: center;
+            font-size: xx-large;
+            color: cadetblue;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      // Your JSX code here
+        function App(){
+            const [toggleText, setToggleText] = React.useState(true);
+
+            const handleClick = () =>{
+                setToggleText(!toggleText);
+            }
+
+            return(
+                <div className="wrapper">
+                    <button onClick={handleClick}>toggle Text</button>
+                    <p>{toggleText? "Seize the day" : "2nd Text toggled"}</p>
+                </div>
+            )
+        }
+      const root = ReactDOM.createRoot(document.getElementById("root")).render(<App/>)
+    </script>
+</body>
+</html>
